@@ -34,8 +34,7 @@ public class PlayerAgent extends Agent{
         behaviour.registerLastState(new EndPhase(this), END);
 
         behaviour.registerDefaultTransition(ACTION, MOVE);
-        behaviour.registerTransition(START, START, 0);
-        behaviour.registerTransition(START, MOVE, 1);
+        behaviour.registerDefaultTransition(START, MOVE);
         behaviour.registerTransition(MOVE,ACTION , 1);
         behaviour.registerTransition(MOVE,MOVE , 2);
         behaviour.registerTransition(MOVE,MOVE , 3);

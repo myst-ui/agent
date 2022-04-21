@@ -2,7 +2,6 @@ package behviours.Master;
 
 import agents.MasterAgent;
 import jade.core.behaviours.OneShotBehaviour;
-import jade.lang.acl.ACLMessage;
 
 
 public class CreateGame extends OneShotBehaviour {
@@ -21,12 +20,6 @@ public class CreateGame extends OneShotBehaviour {
 
 		agent.create_dungeon();
         agent.generat_charactersheet();
-
-		ACLMessage message = new ACLMessage(ACLMessage.INFORM);
-		message.setContent("Accept");
-		message.addReceiver(MasterAgent.IDENTIFIANT);
-		agent.send(message);
-		agent.doWait(3000);
 
 		
 	}
