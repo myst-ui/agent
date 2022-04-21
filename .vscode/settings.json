@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "projet_multi_agent/lib/jade.jar"
+    ]
+}
