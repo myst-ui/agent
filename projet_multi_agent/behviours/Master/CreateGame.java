@@ -26,6 +26,8 @@ public class CreateGame extends OneShotBehaviour {
 		message.setContent("Accept");
 		message.addReceiver(MasterAgent.IDENTIFIANT);
 		agent.send(message);
+		agent.doWait(3000);
+
 		
 	}
 
