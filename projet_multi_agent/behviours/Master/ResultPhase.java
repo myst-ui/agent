@@ -14,7 +14,7 @@ public class ResultPhase extends OneShotBehaviour {
 	
 	public void action() {
         
-        System.out.println("calcul des récompense");
+        System.out.println("Process rewards");
 
         agent.determine_results("treasure");
 		

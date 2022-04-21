@@ -19,18 +19,17 @@ public class ActionPhase extends OneShotBehaviour {
         agent.doWait();
         ACLMessage message = agent.receive();
 
-		System.out.println("action reçue");
 
         String action = agent.choose_action(message.getContent());
 
-		System.out.println("action choisie");
+		agent.doWait(500);
+		System.out.println("action send");
 
 
         ACLMessage info = new ACLMessage(ACLMessage.INFORM);
 		info.setContent(action);
 		info.addReceiver(MasterAgent.IDENTIFIANT);
 		agent.send(info);
-        System.out.println("action envoyé");
         
 	}
 

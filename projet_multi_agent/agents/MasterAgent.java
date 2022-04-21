@@ -105,16 +105,16 @@ public class MasterAgent extends Agent{
     public String available_direction(){
         String directions = "";
         if (playerPos[0]-1 >=0){
-            directions += "haut,";
+            directions += "up,";
         }
         if (playerPos[1]-1 >=0){
-            directions += "gauche,";
+            directions += "left,";
         }
         if (playerPos[0]+1 <6){
-            directions += "bas,";
+            directions += "down,";
         }
         if (playerPos[1]+1 <6){
-            directions += "droite,";
+            directions += "right,";
         }
         return directions;
     }
@@ -135,35 +135,35 @@ public class MasterAgent extends Agent{
     public void move_player(String direction){
         map[playerPos[0]][playerPos[1]] = 3 ;
 
-        if (direction.equals("haut")){
+        if (direction.equals("up")){
             playerPos[0] -=  1;
         }
-        if (direction.equals("bas")){
+        if (direction.equals("down")){
             playerPos[0] += 1;
         }
-        if (direction.equals("gauche")){
+        if (direction.equals("left")){
             playerPos[1] -= 1;
         }
-        if (direction.equals("droite")){
+        if (direction.equals("right")){
             playerPos[1] += 1;
         }
-        System.out.println("le jouer c'est déplacé vers le/la "+direction);
-        System.out.println("Posistion du joueur : "+playerPos[0] +" "+playerPos[1]);
+        System.out.println("Player direction : "+direction);
+        System.out.println("Player position : "+playerPos[0] +" "+playerPos[1]);
     }
     public int process_room(){
         String out = "";
         switch (map[playerPos[0]][playerPos[1]]){
             case 1:
-                out+="une action vas se déroulé dans cette salle";
+                out+="Action room";
                 break;
             case 2:
-                out+="une salle de trésor est pillé";
+                out+="Treasure room";
                 break;
             case 3:
-                out+="la salle est vide";
+                out+="Room is empty";
                 break;
             case 4:
-                out+="le joueur c'est échapé par la sortie du Donjon avec : "+Integer.toString(characterSheet[4])+" golds";
+                out+="Player leave the dungeon with : "+Integer.toString(characterSheet[4])+" golds";
                 break;
         }
         System.out.println(out);
@@ -231,7 +231,7 @@ public class MasterAgent extends Agent{
         
         if (characterSheet[0]<0) {
             end = 2;
-            System.out.println("le joueur est mort dans le donjon");
+            System.out.println("Player died");
         }
         return end;
     }
@@ -243,7 +243,7 @@ public class MasterAgent extends Agent{
                 int rd = rand.nextInt(3);
                 if (rd != 0){
                     map[x][y] = rd;
-                    System.out.println("an event as spawn");
+                    System.out.println("an event has spawn");
                 }
             }
         }

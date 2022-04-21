@@ -30,10 +30,19 @@ public class ActionPhase extends OneShotBehaviour {
         agent.doWait();
         ACLMessage message = agent.receive();
         
-        System.out.println("calcul des récompense");
+        System.out.println("Process rewards");
 
         retour = agent.determine_results(message.getContent());
 
+        if(retour == 2) {
+                agent.doWait(1000);
+                System.out.println("game end");
+                ACLMessage end = new ACLMessage(ACLMessage.INFORM);
+                end.setContent("e");
+                end.addReceiver(PlayerAgent.IDENTIFIANT);
+                agent.send(end);
+        }
+        
 	}
 
     public int onEnd() {

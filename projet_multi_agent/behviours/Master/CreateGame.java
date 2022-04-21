@@ -16,7 +16,7 @@ public class CreateGame extends OneShotBehaviour {
 		agent.doWait();
         agent.receive();
 
-        System.out.println("initialisation de la partie");
+        System.out.println("Game initialisation");
 
 		agent.create_dungeon();
         agent.generat_charactersheet();

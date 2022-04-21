@@ -20,16 +20,20 @@ public class MovementPhase extends OneShotBehaviour {
 	public void action() {
         agent.doWait();
         ACLMessage message = agent.receive();
+        String content = message.getContent();
 
-        if (message.getContent().length() >3){
+        if (! content.equals("e")){
             String direction = agent.choose_direction(message.getContent());
+
+            agent.doWait(500);
+
+            System.out.println("movement send");
 
             ACLMessage info = new ACLMessage(ACLMessage.INFORM);
             info.setContent(direction);
             info.addReceiver(MasterAgent.IDENTIFIANT);
             agent.send(info);
     
-            System.out.println("movement envoyé");
                 
             agent.doWait();
             ACLMessage room = agent.receive();

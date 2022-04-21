@@ -22,7 +22,7 @@ public class FindGame extends OneShotBehaviour {
 		message.setContent("START GAME");
 		message.addReceiver(MasterAgent.IDENTIFIANT);
 		agent.send(message);
-        System.out.println("demande de jeu");
+        System.out.println("Asking for Game");
 
 
 	}

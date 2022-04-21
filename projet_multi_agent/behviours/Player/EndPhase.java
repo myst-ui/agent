@@ -14,7 +14,7 @@ public class EndPhase extends OneShotBehaviour {
 	
 
 	public void action() {
-		System.out.println("Fin");
+		System.out.println("End");
 		agent.doDelete();
 	}
 

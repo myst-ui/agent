@@ -20,6 +20,7 @@ public class MovementPhase extends OneShotBehaviour {
 
 		String directions = agent.available_direction();
         System.out.println("movement request");
+        agent.doWait(500);
         ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
         msg.setContent(directions);
         msg.addReceiver(PlayerAgent.IDENTIFIANT);
@@ -37,6 +38,8 @@ public class MovementPhase extends OneShotBehaviour {
         info.addReceiver(PlayerAgent.IDENTIFIANT);
         agent.send(info);
         agent.doWait(1000);
+
+        System.out.println("room info send");
         
 	}
     public int onEnd() {
