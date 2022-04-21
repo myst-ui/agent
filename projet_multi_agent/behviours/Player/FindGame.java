@@ -25,12 +25,14 @@ public class FindGame extends OneShotBehaviour {
 		agent.send(message);
         System.out.println("demande de jeu");
 
+		
+		agent.doWait();
 		ACLMessage answer = agent.receive();
 		if (answer.getContent().equals("Accept")) retour = 1;
 
 
 	}
-	
+
 	public int onEnd() {
 		return retour;
 	}
