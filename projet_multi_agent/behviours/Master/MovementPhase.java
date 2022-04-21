@@ -36,7 +36,7 @@ public class MovementPhase extends OneShotBehaviour {
         info.setContent(Integer.toString(retour));
         info.addReceiver(PlayerAgent.IDENTIFIANT);
         agent.send(info);
-        agent.doWait(3000);
+        agent.doWait(1000);
         
 	}
     public int onEnd() {
